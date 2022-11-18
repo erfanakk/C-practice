@@ -119,9 +119,13 @@ class Linkedlist():
     def revers(self):
         temp = self.head
         self.head , self.tail = self.tail , self.head
-
         after = temp.next
         before = None
+        for _ in range(self.length):
+            after = temp.next
+            temp.next = before
+            before = temp
+            temp = after
 
 
 
@@ -143,7 +147,12 @@ print(mylist.get(3))
 
 mylist.set_value(3, 4)
 mylist.insert(1, 98)
-mylist.print_list()
-print("000000000000000000000000000000000")
+
+
 mylist.remove(index=1)
 mylist.print_list()
+print("000000000000000000000000000000000")
+mylist.revers()
+mylist.print_list()
+
+ 
